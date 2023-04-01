@@ -1,0 +1,126 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    overflow-x: hidden;
+  }
+  
+  #sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+  }
+  
+  #sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+  }
+  
+  #sidebar-wrapper .list-group {
+    width: 13rem;
+  }
+  
+  #page-content-wrapper {
+    min-width: 100vw;
+  }
+  
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+  }
+  
+  @media (min-width: 768px) {
+    #sidebar-wrapper {
+      margin-left: 0;
+    }
+  
+    #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+    }
+    .show
+    {
+      margin-left: 0!important;
+    }
+    .hide
+    {
+      margin-left: -13rem!important;
+    }
+  }
+  @media (max-width: 767px) {
+    .show
+    {
+      margin-left: -13rem!important;
+    }
+    .hide
+    {
+      margin-left: -0!important;
+    }
+  }
+
+  .error{
+    font-size: 80%;
+    color: #dc3545;
+  }
+
+
+  ::-webkit-input-placeholder {
+    font-size: 25px;
+ }
+ 
+ :-moz-placeholder { /* Firefox 18- */
+       font-size: 25px;
+ }
+ 
+ ::-moz-placeholder {  /* Firefox 19+ */
+       font-size: 25px;
+ }
+ 
+ /* Overriding styles */
+ 
+ ::-webkit-input-placeholder {
+    font-size: 13px!important;
+ }
+ 
+ :-moz-placeholder { /* Firefox 18- */
+       font-size: 13px!important;
+ }
+ ::-moz-placeholder {  /* Firefox 19+ */
+       font-size: 13px!important;
+ }
+
+ .dropdown-menu[data-bs-popper] {
+  left:auto;
+  right: 0 !important;
+ }
+ 
+ .btn-drop-border {
+  border: 0;
+  background-color: transparent;
+ }
+
+ .btn-primary {
+  background: #082c4c;
+ }
+
+ .list-group-item {
+  border: none !important;
+ }
+
+ .modal-header {
+  .close {
+    border: none;
+    border-radius: 55%;
+
+  }
+ }
+
+ #sidebar-wrapper .list-group  {
+    a :hover {
+      background: yellow !important;
+    }
+ }
+
+ .invalid-feedback {
+  text-align: left !important;
+ }

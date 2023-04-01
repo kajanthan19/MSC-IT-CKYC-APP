@@ -1,0 +1,20 @@
+<div class="d-flex" id="wrapper" *ngIf="user">
+
+  <kyc-sidebar></kyc-sidebar>
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <kyc-header></kyc-header>
+    <div class="container-fluid p-5">
+      <!-- <app-alert></app-alert> -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+  
+</div>
+
+<div  class="container-fluid" *ngIf="!user">
+  <!-- <app-alert></app-alert> -->
+    <router-outlet></router-outlet>
+</div>
