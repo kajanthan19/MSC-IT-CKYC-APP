@@ -23,7 +23,8 @@ export class AddEditConsumerComponent implements OnInit {
     ConsumerNumber: new FormControl(''),
     ConsumerAddress: new FormControl(''),
     ConsumerOccupation: new FormControl(''),
-    ConsumerMobileNo: new FormControl('')
+    ConsumerMobileNo: new FormControl(''),
+    Description: new FormControl(''),
   });
 
   constructor(private bsModalRef: BsModalRef, private modalService: BsModalService,

@@ -38,22 +38,22 @@ body {
       min-width: 0;
       width: 100%;
     }
-    .show
+    .min-sidebar
     {
       // margin-left: 0!important;
       width: 220px !important;
     }
-    .hide
+    .max-sidebar
     {
       width: 94px !important;
     }
   }
   @media (max-width: 767px) {
-    .show
+    .min-sidebar
     {
-      margin-left: -13rem!important;
+      width: 220px !important;
     }
-    .hide
+    .max-sidebar
     {
       width: 94px !important;
     }
