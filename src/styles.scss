@@ -40,11 +40,12 @@ body {
     }
     .show
     {
-      margin-left: 0!important;
+      // margin-left: 0!important;
+      width: 220px !important;
     }
     .hide
     {
-      margin-left: -13rem!important;
+      width: 94px !important;
     }
   }
   @media (max-width: 767px) {
@@ -54,7 +55,7 @@ body {
     }
     .hide
     {
-      margin-left: -0!important;
+      width: 94px !important;
     }
   }
 
@@ -123,4 +124,10 @@ body {
 
  .invalid-feedback {
   text-align: left !important;
+ }
+
+ .modal-content .modal-body {
+   .form-group {
+     margin-bottom: 15px !important;
+   }
  }

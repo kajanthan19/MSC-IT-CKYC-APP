@@ -1,10 +1,10 @@
 <div class="d-flex" id="wrapper" *ngIf="user">
 
-  <kyc-sidebar></kyc-sidebar>
+  <kyc-sidebar [statusReceived]="status"></kyc-sidebar>
 
   <!-- Page Content -->
   <div id="page-content-wrapper">
-    <kyc-header></kyc-header>
+    <kyc-header (receiveStatusEvent)="receivedMessageHandler($event)"></kyc-header>
     <div class="container-fluid p-5">
       <!-- <app-alert></app-alert> -->
       <router-outlet></router-outlet>

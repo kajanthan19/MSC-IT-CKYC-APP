@@ -1,28 +1,31 @@
  <!-- Sidebar -->
  <div class="bg-light border-right" id="sidebar-wrapper"  [ngClass]="status ? 'hide' : 'show'">
-    <div class="sidebar-heading">
+    <div class="sidebar-heading" *ngIf="!status">
       <img class="rounded mx-auto d-block" src="../../../assets/kyc-logo.png" alt="" width="100%" height=50px>
     </div>
+    <div class="sidebar-heading" *ngIf="status">
+      <img class="rounded mx-auto d-block" src="../../../assets/small-logo.png" alt="" width="100%" height=40px>
+    </div>
     <div class="list-group list-group-flush mt-4">
-      <!-- <a [routerLink] = "'/time-log'" class="list-group-item list-group-item-action bg-light" *ngIf="user.role == 'Admin' || user.role == 'User'">Time Log</a> -->
-      <a [routerLink] = "'/new-time-log'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin' || user.role == 'User'">
+      <a [routerLink] = "'/consumers'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin' || user.role == 'User'">
         <i class="bi bi-clipboard2-data-fill"></i> Consumers
       </a>
-      <a [routerLink] = "'/project'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
+      <a [routerLink] = "'/consumer-group'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
         <i class="bi bi-collection-fill"></i> Consumer Group</a>
-      <a [routerLink] = "'/time-log-view'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin' || user.role == 'Manager'"> 
+      <a [routerLink] = "'/pricing'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin' || user.role == 'Manager'"> 
         <i class="bi bi-tags-fill"></i> Prcing</a>
-      <a [routerLink] = "'/user'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
+
+      <a [routerLink] = "'/products'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
         <i class="bi bi-book-fill"></i> Products</a>
-      <a [routerLink] = "'/user'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
+      <a [routerLink] = "'/api-management'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
         <i class="bi bi-file-earmark-fill"></i> API Management</a>
-      <a [routerLink] = "'/user'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
+      <a [routerLink] = "'/institutions'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
         <i class="bi bi-nut-fill"></i> Institutions</a>
 
-      <a [routerLink] = "'/user'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
+      <a [routerLink] = "'/accessmanagement'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
         <i class="bi bi-universal-access"></i>  Access Management</a>
 
-      <a [routerLink] = "'/user'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
+      <a [routerLink] = "'/approvals'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
         <i class="bi bi-badge-vo-fill"></i> Approvals</a>
     </div>
   </div>

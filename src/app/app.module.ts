@@ -9,8 +9,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SharedModule } from './shared/shared.module';
 import { ErrorInterceptor, JwtInterceptor } from './helpers';
-import { ConsumerGroupComponent } from './modules/consumer-group/consumer-group.component';
-import { ProjectsManagementComponent } from './modules/projects-management/projects-management.component';
+import { AccessManagementComponent } from './modules/access-management/access-management.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +17,7 @@ import { ProjectsManagementComponent } from './modules/projects-management/proje
     SidebarComponent,
     HeaderComponent,
     LoginComponent,
-    ConsumerGroupComponent,
-    ProjectsManagementComponent
+    AccessManagementComponent,
   ],
   imports: [
     BrowserModule,

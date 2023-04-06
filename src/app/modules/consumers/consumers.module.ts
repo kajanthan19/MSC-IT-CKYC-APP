@@ -3,15 +3,20 @@ import { CommonModule } from '@angular/common';
 
 import { ConsumersRoutingModule } from './consumers-routing.module';
 import { ConsumersComponent } from './consumers.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { AddEditConsumerComponent } from './add-edit-consumer/add-edit-consumer.component';
 
 
 @NgModule({
   declarations: [
-    ConsumersComponent
+    ConsumersComponent,
+    AddEditConsumerComponent
   ],
   imports: [
     CommonModule,
-    ConsumersRoutingModule
+    ConsumersRoutingModule,
+    SharedModule
   ]
 })
 export class ConsumersModule { }

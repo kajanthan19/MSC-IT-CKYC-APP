@@ -1,0 +1,109 @@
+<div>
+    <div class="modal-content">
+        <ngx-loading
+        [show]="loading"
+        [config]="{ backdropBorderRadius: '3px' }"
+      ></ngx-loading>
+        <div class="modal-header">
+            <h4 class="modal-title pull-left"><span *ngIf="isEdit;else add">Update</span>
+                <ng-template #add>New </ng-template> Consumer
+            </h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="cancel(false)">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form [formGroup]="mainform" autocomplete="off" (ngSubmit)="onSubmit(mainform.value)">
+            <div class="modal-body">
+                <div class="container">
+                    <div class="alert alert-danger" style="padding:5px10px ;" *ngIf="errormessage!=''">
+                        {{errormessage}}
+                    </div>
+                    <input *ngIf="isEdit" type="hidden" formControlName="id">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="Name"> Consumer Name <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control input-small-4" id="FullName"
+                                    formControlName="FullName" placeholder="Enter the Consumer Name">
+                                <div *ngIf="mainform.controls['FullName'].hasError('required') && (mainform.controls['FullName'].touched || !mainform.controls['FullName'].pristine)"
+                                    class="error pt-1  " translate>
+                                    Please enter the Consumer Name
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="name">Consumer Type <span class="text-danger">*</span> </label>
+                                <select class="form-select" aria-label="Default select example"
+                                    formControlName="TypeId">
+                                    <option [value]="''">Select the Consumer Type</option>
+                                    <option *ngFor="let item of consumerTypeList"  [value]="item.id">{{item.name}}</option>
+                                </select>
+                                <div *ngIf="mainform.controls['TypeId'].hasError('required') && (mainform.controls['TypeId'].touched || !mainform.controls['TypeId'].pristine)"
+                                    class="error pt-1" translate>
+                                    Please select the Consumer Type
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="Name"> Consumer Number <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control input-small-4" id="ConsumerNumber"
+                                    formControlName="ConsumerNumber" placeholder="Enter the Consumer Number">
+                                <div *ngIf="mainform.controls['ConsumerNumber'].hasError('required') && (mainform.controls['ConsumerNumber'].touched || !mainform.controls['ConsumerNumber'].pristine)"
+                                    class="error pt-1  " translate>
+                                    Please enter the Consumer Nmber
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="Name"> Consumer Occupation <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control input-small-4" id="ConsumerOccupation"
+                                    formControlName="ConsumerOccupation" placeholder="Enter the Consumer Occupation">
+                                <div *ngIf="mainform.controls['ConsumerOccupation'].hasError('required') && (mainform.controls['ConsumerOccupation'].touched || !mainform.controls['ConsumerOccupation'].pristine)"
+                                    class="error pt-1  " translate>
+                                    Please enter the Consumer Occupation
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="Description"> Consumer Address   </label>
+                                    <textarea id="w3review" class="form-control input-small-4" name="Description" rows="4" formControlName="Description">
+                                        </textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="Name"> Consumer Mobile No <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control input-small-4" id="ConsumerMobileNo"
+                                    formControlName="ConsumerMobileNo" placeholder="Enter the Consumer Mobile No">
+                                <div *ngIf="mainform.controls['ConsumerMobileNo'].hasError('required') && (mainform.controls['ConsumerMobileNo'].touched || !mainform.controls['ConsumerMobileNo'].pristine)"
+                                    class="error pt-1  " translate>
+                                    Please enter the Consumer Mobile No
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn  btn-secondary" data-dismiss="modal"
+                    (click)="cancel(false)">Cancel</button>
+                <button type="submit" class="btn  btn-primary pr-4 pl-4" *ngIf="!isEdit"
+                    >Submit</button>
+                <button type="submit" class="btn  btn-primary pr-4 pl-4" *ngIf="isEdit"
+                    [disabled]="!mainform.valid">Update</button>
+            </div>
+        </form>
+
+    </div>
+</div>

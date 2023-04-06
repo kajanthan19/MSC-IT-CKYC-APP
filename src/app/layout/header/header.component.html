@@ -2,23 +2,25 @@
      
   <div class="container-fluid">
     <button class="btn btn-primary" (click)="clickEvent()"><i class="bi bi-list"></i></button>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
+    </button> -->
+
+    <div class="dropdown">
+      <button id="dLabel" type="button" class="btn-drop-border" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="javascript: void(0)" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="../../assets/profile.png" width="40" height="40" class="rounded-circle">
+        </a>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dLabel">
+        <li class="nav-item dropdown">
+            <a class="dropdown-item" href="javascript: void(0)"  [routerLink] = "'/profile'">Profile</a>
+            <a class="dropdown-item" href="javascript: void(0)" (click)="onLogout()">Log Out</a>
+        </li>  
+      </ul>
+    </div>
   </div>
 
-  <div class="dropdown">
-    <button id="dLabel" type="button" class="btn-drop-border" data-bs-toggle="dropdown" aria-expanded="false">
-      <a class="nav-link dropdown-toggle" href="javascript: void(0)" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <img src="../../assets/profile.png" width="40" height="40" class="rounded-circle">
-      </a>
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dLabel">
-      <li class="nav-item dropdown">
-          <a class="dropdown-item" href="javascript: void(0)"  [routerLink] = "'/profile'">Profile</a>
-          <a class="dropdown-item" href="javascript: void(0)" (click)="onLogout()">Log Out</a>
-      </li>  
-    </ul>
-  </div>
+
   <!-- <a class="nav-item mr-3 nav-link p-3" href="javascript: void(0)" style="background-color: #e85c29" (click)="onLogout()">Logout</a> -->
 </nav>

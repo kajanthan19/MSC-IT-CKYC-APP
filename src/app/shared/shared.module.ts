@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule,DatePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -11,8 +11,6 @@ import { allIcons, NgxBootstrapIconsModule } from 'ngx-bootstrap-icons';
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
-    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

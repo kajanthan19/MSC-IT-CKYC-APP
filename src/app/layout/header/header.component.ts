@@ -1,17 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'kyc-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
-  
+export class HeaderComponent implements OnInit {
+
   status: boolean = false;
+  @Output() receiveStatusEvent: EventEmitter<boolean>  = new EventEmitter();
 
 
+  ngOnInit(): void {
+  }
+  
   clickEvent(){
-    this.status = !this.status;       
+    this.status = !this.status;  
+    this.receiveStatusEvent.emit(this.status);
   }
 
   onLogout(){
