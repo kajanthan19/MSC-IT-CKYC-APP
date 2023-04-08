@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { APIManagementRoutingModule } from './apimanagement-routing.module';
 import { APIManagementComponent } from '../apimanagement/apimanagement.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { APIManagementComponent } from '../apimanagement/apimanagement.component
   ],
   imports: [
     CommonModule,
-    APIManagementRoutingModule
+    APIManagementRoutingModule,
+    SharedModule
   ]
 })
 export class APIManagementModule { }

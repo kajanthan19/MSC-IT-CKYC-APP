@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { InstitutionsRoutingModule } from './institutions-routing.module';
 import { InstitutionsComponent } from './institutions.component';
 import { AddEditInstitutionComponent } from './add-edit-institution/add-edit-institution.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AddEditInstitutionComponent } from './add-edit-institution/add-edit-ins
   ],
   imports: [
     CommonModule,
-    InstitutionsRoutingModule
+    InstitutionsRoutingModule,
+    SharedModule
   ]
 })
 export class InstitutionsModule { }

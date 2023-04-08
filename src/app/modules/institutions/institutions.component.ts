@@ -11,7 +11,7 @@ import { AddEditInstitutionComponent } from './add-edit-institution/add-edit-ins
 export class InstitutionsComponent implements OnInit {
   public onClose!: Subject<boolean>;
   public modalRef!: BsModalRef;
-  consumerList: any []= [];
+  institutionList: any []= [];
   submitted: boolean = false;
   loading = false;
   constructor(private modalService: BsModalService) { }

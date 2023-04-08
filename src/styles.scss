@@ -6,10 +6,10 @@ body {
   #sidebar-wrapper {
     min-height: 100vh;
     margin-left: -15rem;
-    -webkit-transition: margin .25s ease-out;
-    -moz-transition: margin .25s ease-out;
-    -o-transition: margin .25s ease-out;
-    transition: margin .25s ease-out;
+    -webkit-transition: width .25s ease-out;
+    -moz-transition: width .25s ease-out;
+    -o-transition: width .25s ease-out;
+    transition: width .25s ease-out;
   }
   
   #sidebar-wrapper .sidebar-heading {
@@ -21,6 +21,22 @@ body {
     width: 13rem;
   }
   
+  #sidebar-wrapper .min-listitem {
+    width: 0px !important;
+    -webkit-transition: width .25s ease-out;
+    -moz-transition: width .25s ease-out;
+    -o-transition: width .25s ease-out;
+    transition: width .25s ease-out;
+    i {
+      font-size: 25px;
+      margin-left: 13px;
+    }
+    span {
+      display: none;
+    }
+
+  }
+
   #page-content-wrapper {
     min-width: 100vw;
   }
@@ -46,6 +62,10 @@ body {
     .max-sidebar
     {
       width: 94px !important;
+      -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
     }
   }
   @media (max-width: 767px) {
@@ -56,6 +76,10 @@ body {
     .max-sidebar
     {
       width: 94px !important;
+      -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
     }
   }
 

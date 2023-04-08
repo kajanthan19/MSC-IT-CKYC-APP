@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ApprovalsRoutingModule } from './approvals-routing.module';
 import { ApprovalsComponent } from '../approvals/approvals.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ApprovalsComponent } from '../approvals/approvals.component';
   ],
   imports: [
     CommonModule,
-    ApprovalsRoutingModule
+    ApprovalsRoutingModule,
+    SharedModule
   ]
 })
 export class ApprovalsModule { }

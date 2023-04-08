@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
     if(!this.isPasswordChange){
       this.loading = true;
       this.authservice.token(this.f['email'].value, this.f['password'].value)
-          .pipe(first()) 
+          // .pipe(first()) 
           .subscribe({
               next: () => {
                  this.loading = false;

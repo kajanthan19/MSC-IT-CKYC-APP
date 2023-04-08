@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
 
@@ -42,6 +42,10 @@ export class AddEditConsumerComponent implements OnInit {
     }
   }
 
+  get f(): { [key: string]: AbstractControl } {
+    return this.mainform.controls;
+  }
+
   onSubmit(value: any): void {
     this.submitted = true;
     this.errormessage = '';
@@ -54,6 +58,11 @@ export class AddEditConsumerComponent implements OnInit {
   cancel(state: boolean): void {
     this.onClose.next(state);
     this.bsModalRef.hide();
+  }
+
+  onReset(): void {
+    this.submitted = false;
+    this.mainform.reset();
   }
   
   

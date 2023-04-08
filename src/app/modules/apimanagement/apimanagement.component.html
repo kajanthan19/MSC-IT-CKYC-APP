@@ -1,1 +1,37 @@
-<p>apimanagement works!</p>
+<div class="row">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+        <button type="button" class="btn btn-primary float-end" (click)="onOpenModal()"><i class="bi bi-plus-circle-fill"></i> Add</button>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <table class="table table-bordered">
+      <ngx-loading
+      [show]="loading"
+      [config]="{ backdropBorderRadius: '3px' }"
+    ></ngx-loading>
+        <thead>
+          <tr>
+            
+            <th scope="col">Service ID</th>
+            <th scope="col">Service Name</th>
+            <th scope="col"> Encryption type</th>
+            <th scope="col" style="width: 120px;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of apimanagementList; index as i;">
+            <th scope="row">{{item.name}}</th>
+            <td>{{item.description}}</td>
+            <td>{{item.description}}</td>
+            <td>
+              <button type="button" class="btn btn-primary me-2" (click)="onEditRow(item)"><i class="bi bi-pencil"></i></button>
+              <button type="button" class="btn btn-danger" (click)="onDeleteRow(item, i)"><i class="bi bi-trash3"></i></button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+</div>

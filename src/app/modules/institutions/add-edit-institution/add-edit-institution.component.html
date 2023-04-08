@@ -1,1 +1,80 @@
-<p>add-edit-institution works!</p>
+<div>
+    <div class="modal-content">
+        <ngx-loading
+        [show]="loading"
+        [config]="{ backdropBorderRadius: '3px' }"
+      ></ngx-loading>
+        <div class="modal-header">
+            <h4 class="modal-title pull-left"><span *ngIf="isEdit;else add">Update</span>
+                <ng-template #add>New </ng-template> Institution
+            </h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="cancel(false)">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form [formGroup]="mainform" autocomplete="off" (ngSubmit)="onSubmit(mainform.value)">
+            <div class="modal-body">
+                <div class="container">
+                    <div class="alert alert-danger" style="padding:5px10px ;" *ngIf="errormessage!=''">
+                        {{errormessage}}
+                    </div>
+                    <input *ngIf="isEdit" type="hidden" formControlName="id">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="Name"> Institution Name <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control input-small-4" id="GroupName"
+                                    formControlName="GroupName" placeholder="Enter the Institution Name" [ngClass]="{ 'is-invalid': submitted && f['GroupName'].errors }">
+                                  <div *ngIf="submitted && f['GroupName'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['GroupName'].errors['required'] || (f['GroupName'].touched || !f['GroupName'].pristine)">
+                                            Please enter the Institution Name</div>
+                                  </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="Description"> Description</label>
+                                    <textarea id="w3review" class="form-control input-small-4" name="Description" rows="4" formControlName="Description">
+                                        </textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="name">Status 
+                                    <!-- <span class="text-danger">*</span>  -->
+                                </label>
+                                <select class="form-select" aria-label="Default select example"
+                                    formControlName="status" [ngClass]="{ 'is-invalid': submitted && f['status'].errors }">
+                                    <option [value]="''">Select the Status</option>
+                                    <option value="Active">Active</option>
+                                </select>
+                                <div *ngIf="submitted && f['status'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['status'].errors['required'] || (f['status'].touched || !f['status'].pristine)">
+                                        Please select the `status</div>
+                              </div>
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="onReset()" class="btn btn-warning float-right">
+                Reset
+              </button>
+                <button type="button" class="btn  btn-secondary" data-dismiss="modal"
+                    (click)="cancel(false)">Cancel</button>
+                <button type="submit" class="btn  btn-primary pr-4 pl-4" *ngIf="!isEdit"
+                    >Submit</button>
+                <button type="submit" class="btn  btn-primary pr-4 pl-4" *ngIf="isEdit"
+                    [disabled]="!mainform.valid">Update</button>
+            </div>
+        </form>
+
+    </div>
+</div>

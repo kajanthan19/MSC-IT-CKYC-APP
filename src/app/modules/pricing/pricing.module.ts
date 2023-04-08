@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PricingRoutingModule } from './pricing-routing.module';
 import { PricingComponent } from '../pricing/pricing.component';
 import { AddEditPricingComponent } from './add-edit-pricing/add-edit-pricing.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AddEditPricingComponent } from './add-edit-pricing/add-edit-pricing.com
   ],
   imports: [
     CommonModule,
-    PricingRoutingModule
+    PricingRoutingModule,
+    SharedModule
   ]
 })
 export class PricingModule { }

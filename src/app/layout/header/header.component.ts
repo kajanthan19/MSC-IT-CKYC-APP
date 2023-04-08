@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'kyc-header',
@@ -9,7 +10,8 @@ export class HeaderComponent implements OnInit {
 
   status: boolean = false;
   @Output() receiveStatusEvent: EventEmitter<boolean>  = new EventEmitter();
-
+  constructor(private authservice: AuthService) { 
+    }
 
   ngOnInit(): void {
   }
@@ -20,7 +22,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout(){
-    // this.authservice.logout();
+    this.authservice.logout();
   }
 
 }

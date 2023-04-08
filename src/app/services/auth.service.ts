@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable, of } from 'rxjs';
 import { TokenData } from '../models/token';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -29,16 +29,32 @@ export class AuthService {
 
 
   token(email: any, password: any) {
-    return this.http.post<any>(`${environment.apiUrl}/tokens`, { email, password }, { 'headers': this.headers } )
-        .pipe(map(res => {
-           // console.log(res)
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-            let responseData = res.data;
-            // responseData.role =  this.getCurrentUserRole(res.data.token);
-            localStorage.setItem('user_data', JSON.stringify(responseData));
-            this.userSubject.next(responseData);
-            return res;
-        }));
+
+    if(email == 'admin@gmail.com' && password == '123456' ){
+      let data: any = {
+        username: email,
+        id: 'awswss',
+        role: 'Admin',
+        refreshToken: 'assss',
+        token: 'aswssddd'
+      }
+      localStorage.setItem('user_data', JSON.stringify(data));
+      this.userSubject.next(data);
+      return of(data)
+    }else {
+      return of(null)
+    }
+
+    // return this.http.post<any>(`${environment.apiUrl}/tokens`, { email, password }, { 'headers': this.headers } )
+    //     .pipe(map(res => {
+    //        // console.log(res)
+    //         // store user details and jwt token in local storage to keep user logged in between page refreshes
+    //         let responseData = res.data;
+    //         // responseData.role =  this.getCurrentUserRole(res.data.token);
+    //         localStorage.setItem('user_data', JSON.stringify(responseData));
+    //         this.userSubject.next(responseData);
+    //         return res;
+    //     }));
   }
 
   newpassword(email: any, password: any, newPassword: any) {

@@ -9,11 +9,11 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = 'centralize-kyc-app';
-  user: any = {};
+  user: any;
   status: boolean = false;
 
   constructor(private authservice: AuthService){
-    // this.authservice.user.subscribe(x => this.user = x);
+    this.authservice.user.subscribe(x => this.user = x);
   }
 
 

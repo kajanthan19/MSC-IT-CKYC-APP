@@ -24,11 +24,10 @@
                             <div class="form-group">
                                 <label for="Name"> Consumer Name <span class="text-danger">*</span> </label>
                                 <input type="text" class="form-control input-small-4" id="FullName"
-                                    formControlName="FullName" placeholder="Enter the Consumer Name">
-                                <div *ngIf="mainform.controls['FullName'].hasError('required') && (mainform.controls['FullName'].touched || !mainform.controls['FullName'].pristine)"
-                                    class="error pt-1  " translate>
-                                    Please enter the Consumer Name
-                                </div>
+                                    formControlName="FullName" placeholder="Enter the Consumer Name" [ngClass]="{ 'is-invalid': submitted && f['FullName'].errors }">
+                                  <div *ngIf="submitted && f['FullName'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['FullName'].errors['required'] || (f['FullName'].touched || !f['FullName'].pristine)">Please enter the Consumer Name</div>
+                                  </div>
                             </div>
                         </div>
 
@@ -36,14 +35,13 @@
                             <div class="form-group">
                                 <label for="name">Consumer Type <span class="text-danger">*</span> </label>
                                 <select class="form-select" aria-label="Default select example"
-                                    formControlName="TypeId">
+                                    formControlName="TypeId" [ngClass]="{ 'is-invalid': submitted && f['TypeId'].errors }">
                                     <option [value]="''">Select the Consumer Type</option>
                                     <option *ngFor="let item of consumerTypeList"  [value]="item.id">{{item.name}}</option>
                                 </select>
-                                <div *ngIf="mainform.controls['TypeId'].hasError('required') && (mainform.controls['TypeId'].touched || !mainform.controls['TypeId'].pristine)"
-                                    class="error pt-1" translate>
-                                    Please select the Consumer Type
-                                </div>
+                                <div *ngIf="submitted && f['TypeId'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['TypeId'].errors['required'] || (f['TypeId'].touched || !f['TypeId'].pristine)">Please select the Consumer Type</div>
+                              </div>
                             </div>
                         </div>
 
@@ -52,10 +50,10 @@
                                 <label for="Name"> Consumer Number <span class="text-danger">*</span> </label>
                                 <input type="text" class="form-control input-small-4" id="ConsumerNumber"
                                     formControlName="ConsumerNumber" placeholder="Enter the Consumer Number">
-                                <div *ngIf="mainform.controls['ConsumerNumber'].hasError('required') && (mainform.controls['ConsumerNumber'].touched || !mainform.controls['ConsumerNumber'].pristine)"
-                                    class="error pt-1  " translate>
-                                    Please enter the Consumer Nmber
-                                </div>
+                                    <div *ngIf="submitted && f['TypeId'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['TypeId'].errors['required'] || (f['TypeId'].touched || !f['TypeId'].pristine)">
+                                            Please select the Consumer Type</div>
+                                  </div>
                             </div>
                         </div>
 
@@ -64,10 +62,11 @@
                                 <label for="Name"> Consumer Occupation <span class="text-danger">*</span> </label>
                                 <input type="text" class="form-control input-small-4" id="ConsumerOccupation"
                                     formControlName="ConsumerOccupation" placeholder="Enter the Consumer Occupation">
-                                <div *ngIf="mainform.controls['ConsumerOccupation'].hasError('required') && (mainform.controls['ConsumerOccupation'].touched || !mainform.controls['ConsumerOccupation'].pristine)"
-                                    class="error pt-1  " translate>
-                                    Please enter the Consumer Occupation
-                                </div>
+                                    <div *ngIf="submitted && f['TypeId'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['TypeId'].errors['required'] || (f['TypeId'].touched || !f['TypeId'].pristine)">
+                                            Please select the Consumer Occupation
+                                        </div>
+                                  </div>
                             </div>
                         </div>
 
@@ -84,10 +83,9 @@
                                 <label for="Name"> Consumer Mobile No <span class="text-danger">*</span> </label>
                                 <input type="text" class="form-control input-small-4" id="ConsumerMobileNo"
                                     formControlName="ConsumerMobileNo" placeholder="Enter the Consumer Mobile No">
-                                <div *ngIf="mainform.controls['ConsumerMobileNo'].hasError('required') && (mainform.controls['ConsumerMobileNo'].touched || !mainform.controls['ConsumerMobileNo'].pristine)"
-                                    class="error pt-1  " translate>
-                                    Please enter the Consumer Mobile No
-                                </div>
+                                    <div *ngIf="submitted && f['ConsumerMobileNo'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['ConsumerMobileNo'].errors['required'] || (f['ConsumerMobileNo'].touched || !f['ConsumerMobileNo'].pristine)">Please select the Consumer Mobile Np</div>
+                                  </div>
                             </div>
                         </div>
 
@@ -96,6 +94,9 @@
                 </div>
             </div>
             <div class="modal-footer">
+                <button type="button" (click)="onReset()" class="btn btn-warning float-right">
+                Reset
+              </button>
                 <button type="button" class="btn  btn-secondary" data-dismiss="modal"
                     (click)="cancel(false)">Cancel</button>
                 <button type="submit" class="btn  btn-primary pr-4 pl-4" *ngIf="!isEdit"

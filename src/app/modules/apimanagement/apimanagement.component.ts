@@ -10,7 +10,7 @@ import { Subject } from 'rxjs';
 export class APIManagementComponent implements OnInit {
   public onClose!: Subject<boolean>;
   public modalRef!: BsModalRef;
-  consumerList: any []= [];
+  apimanagementList: any []= [];
   submitted: boolean = false;
   loading = false;
   constructor(private modalService: BsModalService) { }
