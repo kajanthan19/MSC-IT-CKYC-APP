@@ -43,13 +43,13 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of consumerList; index as i;">
-            <th scope="row">{{item.FullName}}</th>
-            <td>{{item.TypeId}}</td>
-            <td>{{item.ConsumerNumber}}</td>
-            <td>{{item.ConsumerAddress}}</td>
-            <td>{{item.ConsumerOccupation}}</td>
-            <td>{{item.ConsumerMobileNo}}</td>
-            <td>{{item.Description}}</td>
+            <th scope="row">{{item.consumer_name}}</th>
+            <td>{{item.consumer_type}}</td>
+            <td>{{item.consumer_ref}}</td>
+            <td>{{item.consumer_type}}</td>
+            <td>{{item.consumer_type}}</td>
+            <td>{{item.consumer_type}}</td>
+            <td>{{item.consumer_type}}</td>
             <td>
               <button type="button" class="btn btn-primary me-2" (click)="onEditRow(item)"><i class="bi bi-pencil"></i></button>
               <button type="button" class="btn btn-danger" (click)="onDeleteRow(item, i)"><i class="bi bi-trash3"></i></button>
