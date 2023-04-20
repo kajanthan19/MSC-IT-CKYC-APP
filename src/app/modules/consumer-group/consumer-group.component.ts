@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
 import { AddEditConsumerGroupComponent } from './add-edit-consumer-group/add-edit-consumer-group.component';
+import { MockDataService } from 'src/app/services/mock-data.service';
+import { ConsumerGroup } from 'src/app/models/ConsumerGroup';
 
 @Component({
   selector: 'kyc-consumer-group',
@@ -11,15 +13,22 @@ import { AddEditConsumerGroupComponent } from './add-edit-consumer-group/add-edi
 export class ConsumerGroupComponent implements OnInit {
   public onClose!: Subject<boolean>;
   public modalRef!: BsModalRef;
-  consumerList: any []= [];
+  consumerList: ConsumerGroup []= [];
   submitted: boolean = false;
   loading = false;
-  constructor(private modalService: BsModalService) { }
+  constructor(private modalService: BsModalService,  private mockDataService: MockDataService) { }
 
   ngOnInit(): void {
-   
+   this.getLoadConsumerList();
   }
 
+  getLoadConsumerList(){
+    this.mockDataService.getConsumersGroup().subscribe((res) => {
+       this.consumerList = res;
+    }, error => {
+      console.log(error)
+    })
+  }
 
 onOpenModal(): void {
   const initialState = {
