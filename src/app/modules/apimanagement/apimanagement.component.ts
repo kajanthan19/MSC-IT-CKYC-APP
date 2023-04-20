@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
+import { APIName } from 'src/app/models/APImanagement';
+import { MockDataService } from 'src/app/services/mock-data.service';
 
 @Component({
   selector: 'kyc-apimanagement',
@@ -13,10 +15,17 @@ export class APIManagementComponent implements OnInit {
   apimanagementList: any []= [];
   submitted: boolean = false;
   loading = false;
-  constructor(private modalService: BsModalService) { }
+  apinamelist: APIName [] = [];
+  constructor(private modalService: BsModalService, private mockservice: MockDataService) { }
 
   ngOnInit(): void {
-   
+   this.getAllAPiNameList();
+  }
+
+  getAllAPiNameList(){
+    this.mockservice.getApiNameList().subscribe((res)=>{
+      this.apinamelist = res;
+    })
   }
 
 
