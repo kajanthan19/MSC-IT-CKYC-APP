@@ -16,10 +16,16 @@ export class AddEditProductComponent implements OnInit {
   loading: boolean = false;
   modalDataPass: any;
   product: any;
+  listdescriptions:any [] = [];
+  lineItems: Array<any> = [];
   mainform: FormGroup = new FormGroup({
-    ProductName: new FormControl('', Validators.required),
-    Description: new FormControl(''),
-    LinkedServiceList: new FormControl('')
+    productname: new FormControl('', Validators.required),
+    description : new FormControl('', Validators.required),
+    price : new FormControl('', Validators.required),
+    currency: new FormControl('', Validators.required),
+    listdescription: new FormControl('', Validators.required),
+    status: new FormControl('Active'),
+    period: new FormControl('', Validators.required),
   });
   constructor(private bsModalRef: BsModalRef, private modalService: BsModalService,
     private formBuilder: FormBuilder,
@@ -47,6 +53,7 @@ export class AddEditProductComponent implements OnInit {
     }
    
   }
+  addLineItem = (term:any) => ({id: term, name: term});
 
   cancel(state: boolean): void {
     this.onClose.next(state);

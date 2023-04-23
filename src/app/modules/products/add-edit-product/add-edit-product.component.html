@@ -24,9 +24,9 @@
                             <div class="form-group">
                                 <label for="Name"> Product Name <span class="text-danger">*</span> </label>
                                 <input type="text" class="form-control input-small-4" id="ProductName"
-                                    formControlName="ProductName" placeholder="Enter the Product Name" [ngClass]="{ 'is-invalid': submitted && f['ProductName'].errors }">
-                                  <div *ngIf="submitted && f['ProductName'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['ProductName'].errors['required'] || (f['ProductName'].touched || !f['ProductName'].pristine)">
+                                    formControlName="productname" placeholder="Enter the Product Name" [ngClass]="{ 'is-invalid': submitted && f['productname'].errors }">
+                                  <div *ngIf="submitted && f['productname'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['productname'].errors['required'] || (f['productname'].touched || !f['productname'].pristine)">
                                             Please enter the Product Name</div>
                                   </div>
                             </div>
@@ -35,23 +35,75 @@
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="Description"> Description</label>
-                                    <textarea id="w3review" class="form-control input-small-4" name="Description" rows="4" formControlName="Description">
+                                <label for="description"> Description</label>
+                                    <textarea id="w3review" class="form-control input-small-4" name="Description" rows="3" formControlName="description">
                                         </textarea>
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="Name"> Linked Service List
-                                    <!-- <span class="text-danger">*</span>  -->
+                                <label for="Name"> Line Description
+                                    <span class="text-danger">*</span> 
                                 </label>
-                                <input type="text" class="form-control input-small-4" id="LinkedServiceList"
-                                    formControlName="LinkedServiceList" placeholder="Enter the Service Name" [ngClass]="{ 'is-invalid': submitted && f['LinkedServiceList'].errors }">
-                                  <div *ngIf="submitted && f['LinkedServiceList'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['LinkedServiceList'].errors['required'] || (f['LinkedServiceList'].touched || !f['LinkedServiceList'].pristine)">
+                                <ng-select  [items]="lineItems" bindLabel="name" bindValue="id"
+                                                    [addTag]="addLineItem"
+                                                    [multiple]="true"
+                                                    placeholder="Select user or add custom tag"
+                                                    [(ngModel)]="listdescriptions" formControlName="listdescription">
+                                        </ng-select>
+
+                                  <div *ngIf="submitted && f['listdescription'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['listdescription'].errors['required'] || (f['listdescription'].touched || !f['listdescription'].pristine)">
                                             Please enter the Service Name</div>
                                   </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="Name"> Currency <span class="text-danger">*</span> </label>
+                                <select class="form-select" aria-label="Default select example"
+                                formControlName="currency" [ngClass]="{ 'is-invalid': submitted && f['currency'].errors }">
+                                <option [value]="''">Select the currency</option>
+                                <option value="USD">USD</option>
+                                <option value="LKR">LKR</option>
+                                <option value="GBP">GBP</option>
+                            </select>
+                                  <div *ngIf="submitted && f['currency'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['currency'].errors['required'] || (f['currency'].touched || !f['currency'].pristine)">
+                                            Please enter the currency </div>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="Name"> Price <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control input-small-4" id="price"
+                                    formControlName="price" placeholder="Enter the price" [ngClass]="{ 'is-invalid': submitted && f['price'].errors }">
+                                  <div *ngIf="submitted && f['price'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['price'].errors['required'] || (f['price'].touched || !f['price'].pristine)">
+                                            Please enter the Product Name</div>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="name">Period 
+                                    <span class="text-danger">*</span> 
+                                </label>
+                                <select class="form-select" aria-label="Default select example"
+                                    formControlName="period" [ngClass]="{ 'is-invalid': submitted && f['period'].errors }">
+                                    <option [value]="''">Select the period</option>
+                                    <option value="Monthly">Monthly</option>
+                                    <option value="Yearly">Yearly</option>
+                                </select>
+                                <div *ngIf="submitted && f['period'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['period'].errors['required'] || (f['period'].touched || !f['period'].pristine)">
+                                        Please select the period</div>
+                              </div>
                             </div>
                         </div>
 

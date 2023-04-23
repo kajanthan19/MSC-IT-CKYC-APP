@@ -8,6 +8,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ngxLoadingAnimationTypes, NgxLoadingModule } from 'ngx-loading';
 import { allIcons, NgxBootstrapIconsModule } from 'ngx-bootstrap-icons';
 import { DeleteComponent } from './delete/delete.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DeleteComponent } from './delete/delete.component';
       secondaryColour: "#082c4c",
       tertiaryColour: "#082c4c",
     }),
-    NgxBootstrapIconsModule.pick(allIcons)
+    NgxBootstrapIconsModule.pick(allIcons),
+    NgSelectModule
   ],
   providers:[DatePipe],
   exports:[ 
@@ -36,7 +38,8 @@ import { DeleteComponent } from './delete/delete.component';
     HttpClientModule,
     ModalModule,
     BsDatepickerModule,
-    NgxLoadingModule
+    NgxLoadingModule,
+    NgSelectModule
   ],
   entryComponents:[DeleteComponent]
 })
