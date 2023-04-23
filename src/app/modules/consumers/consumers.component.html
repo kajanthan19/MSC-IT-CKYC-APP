@@ -31,13 +31,13 @@
         <thead>
           <tr>
             
-            <th scope="col"> Full Name</th>
-            <th scope="col">Type</th>
-            <th scope="col"> Number</th>
-            <th scope="col"> Address</th>
-            <th scope="col"> Occupation</th>
-            <th scope="col"> Mobile No</th>
-            <th scope="col"> Description </th>
+            <th scope="col"> Consumer Name</th>
+            <th scope="col">Group Type</th>
+            <th scope="col"> Consumer Ref</th>
+            <th scope="col"> Client Public KeyPath</th>
+            <th scope="col"> Client Private KeyPath</th>
+            <th scope="col"> Server Public KeyPath</th>
+            <th scope="col"> Server Private KeyPath  </th>
             <th scope="col" style="width: 120px;">Action</th>
           </tr>
         </thead>
@@ -46,12 +46,12 @@
             <th scope="row">{{item.consumer_name}}</th>
             <td>{{item.consumer_type}}</td>
             <td>{{item.consumer_ref}}</td>
-            <td>{{item.consumer_type}}</td>
-            <td>{{item.consumer_type}}</td>
-            <td>{{item.consumer_type}}</td>
-            <td>{{item.consumer_type}}</td>
+            <td>{{item.ClientPublicKeyPath}}</td>
+            <td>{{item.ClientPrivateKeyPath}}</td>
+            <td>{{item.ServerPublicKeyPath}}</td>
+            <td>{{item.ServerPrivateKeyPath}}</td>
             <td>
-              <button type="button" class="btn btn-primary me-2" (click)="onEditRow(item)"><i class="bi bi-pencil"></i></button>
+              <button type="button" class="btn btn-primary me-2" (click)="onEditRow(item, i)"><i class="bi bi-pencil"></i></button>
               <button type="button" class="btn btn-danger" (click)="onDeleteRow(item, i)"><i class="bi bi-trash3"></i></button>
             </td>
           </tr>

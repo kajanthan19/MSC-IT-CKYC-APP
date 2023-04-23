@@ -1,6 +1,10 @@
 export interface ProductItem {
     ID :number;
     productname: string;
-    status : string;
-
+    description : string;
+    price : string;
+    currency: string;
+    listdescription:string [];
+    status: string;
+    period: string;
 }

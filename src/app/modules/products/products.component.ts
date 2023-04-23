@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
 import { AddEditProductComponent } from './add-edit-product/add-edit-product.component';
+import { MockDataService } from 'src/app/services/mock-data.service';
+import { ProductItem } from 'src/app/models/product';
 
 @Component({
   selector: 'kyc-products',
@@ -11,15 +13,22 @@ import { AddEditProductComponent } from './add-edit-product/add-edit-product.com
 export class ProductsComponent implements OnInit{
   public onClose!: Subject<boolean>;
   public modalRef!: BsModalRef;
-  productList: any []= [];
+  productList: ProductItem []= [];
   submitted: boolean = false;
   loading = false;
-  constructor(private modalService: BsModalService) { }
+  constructor(private modalService: BsModalService, private mockService: MockDataService) { }
 
   ngOnInit(): void {
-   
+   this.getProductList();
   }
 
+  getProductList(){
+    this.mockService.getProductList().subscribe((res)=>{
+      this.productList = res;
+    }, error => {
+      console.log(error);
+    })
+  }
 
 onOpenModal(): void {
   const initialState = {

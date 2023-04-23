@@ -18,15 +18,15 @@
                     <div class="alert alert-danger" style="padding:5px10px ;" *ngIf="errormessage!=''">
                         {{errormessage}}
                     </div>
-                    <input *ngIf="isEdit" type="hidden" formControlName="id">
+                    <input *ngIf="isEdit" type="hidden" formControlName="ID">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="Name"> Consumer Name <span class="text-danger">*</span> </label>
-                                <input type="text" class="form-control input-small-4" id="FullName"
-                                    formControlName="FullName" placeholder="Enter the Consumer Name" [ngClass]="{ 'is-invalid': submitted && f['FullName'].errors }">
-                                  <div *ngIf="submitted && f['FullName'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['FullName'].errors['required'] || (f['FullName'].touched || !f['FullName'].pristine)">Please enter the Consumer Name</div>
+                                <input type="text" class="form-control input-small-4" id="consumer_name"
+                                    formControlName="consumer_name" placeholder="Enter the Consumer Name" [ngClass]="{ 'is-invalid': submitted && f['consumer_name'].errors }">
+                                  <div *ngIf="submitted && f['consumer_name'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['consumer_name'].errors['required'] || (f['consumer_name'].touched || !f['consumer_name'].pristine)">Please enter the Consumer Name</div>
                                   </div>
                             </div>
                         </div>
@@ -35,23 +35,23 @@
                             <div class="form-group">
                                 <label for="name">Consumer Type <span class="text-danger">*</span> </label>
                                 <select class="form-select" aria-label="Default select example"
-                                    formControlName="TypeId" [ngClass]="{ 'is-invalid': submitted && f['TypeId'].errors }">
+                                    formControlName="consumer_type" [ngClass]="{ 'is-invalid': submitted && f['consumer_type'].errors }">
                                     <option [value]="''">Select the Consumer Type</option>
-                                    <option *ngFor="let item of consumerTypeList"  [value]="item.id">{{item.name}}</option>
+                                    <option *ngFor="let item of consumerTypeList"  [value]="item.groupname">{{item.groupname}}</option>
                                 </select>
-                                <div *ngIf="submitted && f['TypeId'].errors" class="invalid-feedback">
-                                    <div *ngIf="f['TypeId'].errors['required'] || (f['TypeId'].touched || !f['TypeId'].pristine)">Please select the Consumer Type</div>
+                                <div *ngIf="submitted && f['consumer_type'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['consumer_type'].errors['required'] || (f['consumer_type'].touched || !f['consumer_type'].pristine)">Please select the Consumer Type</div>
                               </div>
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="Name"> Consumer Number <span class="text-danger">*</span> </label>
-                                <input type="text" class="form-control input-small-4" id="ConsumerNumber"
-                                    formControlName="ConsumerNumber" placeholder="Enter the Consumer Number">
-                                    <div *ngIf="submitted && f['TypeId'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['TypeId'].errors['required'] || (f['TypeId'].touched || !f['TypeId'].pristine)">
+                                <label for="Name"> Consumer Ref <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control input-small-4" id="consumer_ref"
+                                    formControlName="consumer_ref" placeholder="Enter the Consumer Ref">
+                                    <div *ngIf="submitted && f['consumer_ref'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['consumer_ref'].errors['required'] || (f['consumer_ref'].touched || !f['consumer_ref'].pristine)">
                                             Please select the Consumer Type</div>
                                   </div>
                             </div>
@@ -59,36 +59,50 @@
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="Name"> Consumer Occupation <span class="text-danger">*</span> </label>
-                                <input type="text" class="form-control input-small-4" id="ConsumerOccupation"
-                                    formControlName="ConsumerOccupation" placeholder="Enter the Consumer Occupation">
-                                    <div *ngIf="submitted && f['TypeId'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['TypeId'].errors['required'] || (f['TypeId'].touched || !f['TypeId'].pristine)">
+                                <label for="Name"> Client Public KeyPath<span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control input-small-4" id="ClientPublicKeyPath"
+                                    formControlName="ClientPublicKeyPath" placeholder="Enter the Client Public KeyPath">
+                                    <div *ngIf="submitted && f['ClientPublicKeyPath'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['ClientPublicKeyPath'].errors['required'] || (f['ClientPublicKeyPath'].touched || !f['ClientPublicKeyPath'].pristine)">
                                             Please select the Consumer Occupation
                                         </div>
                                   </div>
                             </div>
                         </div>
 
+                       
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="Description"> Consumer Address   </label>
-                                    <textarea id="w3review" class="form-control input-small-4" name="Description" rows="4" formControlName="Description">
-                                        </textarea>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="Name"> Consumer Mobile No <span class="text-danger">*</span> </label>
-                                <input type="text" class="form-control input-small-4" id="ConsumerMobileNo"
-                                    formControlName="ConsumerMobileNo" placeholder="Enter the Consumer Mobile No">
-                                    <div *ngIf="submitted && f['ConsumerMobileNo'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['ConsumerMobileNo'].errors['required'] || (f['ConsumerMobileNo'].touched || !f['ConsumerMobileNo'].pristine)">Please select the Consumer Mobile Np</div>
+                                <label for="Name"> Client Private KeyPath <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control input-small-4" id="ClientPrivateKeyPath"
+                                    formControlName="ClientPrivateKeyPath" placeholder="Enter the Client Private KeyPath">
+                                    <div *ngIf="submitted && f['ClientPrivateKeyPath'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['ClientPrivateKeyPath'].errors['required'] || (f['ClientPrivateKeyPath'].touched || !f['ClientPrivateKeyPath'].pristine)">Please select the Consumer Mobile Np</div>
                                   </div>
                             </div>
                         </div>
 
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="Name"> Server Public KeyPath <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control input-small-4" id="ServerPublicKeyPath"
+                                    formControlName="ServerPublicKeyPath" placeholder="Enter the  Server Public KeyPath">
+                                    <div *ngIf="submitted && f['ServerPublicKeyPath'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['ServerPublicKeyPath'].errors['required'] || (f['ServerPublicKeyPath'].touched || !f['ServerPublicKeyPath'].pristine)">Please select the Consumer Mobile Np</div>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="Name"> Server Private KeyPath <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control input-small-4" id="ServerPrivateKeyPath"
+                                    formControlName="ServerPrivateKeyPath" placeholder="Enter the ServerPrivateKeyPath">
+                                    <div *ngIf="submitted && f['ServerPrivateKeyPath'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['ServerPrivateKeyPath'].errors['required'] || (f['ServerPrivateKeyPath'].touched || !f['ServerPrivateKeyPath'].pristine)">Please select the Consumer Mobile Np</div>
+                                  </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>

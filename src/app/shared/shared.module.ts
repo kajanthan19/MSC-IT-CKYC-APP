@@ -7,9 +7,12 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ngxLoadingAnimationTypes, NgxLoadingModule } from 'ngx-loading';
 import { allIcons, NgxBootstrapIconsModule } from 'ngx-bootstrap-icons';
+import { DeleteComponent } from './delete/delete.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    DeleteComponent
+  ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
@@ -35,6 +38,6 @@ import { allIcons, NgxBootstrapIconsModule } from 'ngx-bootstrap-icons';
     BsDatepickerModule,
     NgxLoadingModule
   ],
-  entryComponents:[]
+  entryComponents:[DeleteComponent]
 })
 export class SharedModule { }
