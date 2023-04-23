@@ -11,17 +11,19 @@ import { Subject } from 'rxjs';
 export class AddEditConsumerGroupComponent implements OnInit {
   errormessage: string = '';
   isEdit: boolean = false;
-  public onClose!: Subject<boolean>;
+  public onClose!: Subject<any>;
   submitted: boolean = false;
   loading: boolean = false;
   modalDataPass: any;
   consumerGroup: any;
   consumerTypeList: Array<any> = [];
   mainform: FormGroup = new FormGroup({
-    GroupName: new FormControl('', Validators.required),
+    ID: new FormControl(''),
+    groupname: new FormControl('', Validators.required),
     description: new FormControl(''),
-    status: new FormControl('')
+    status: new FormControl('', Validators.required)
   });
+  selectedIndex: any;
   constructor(private bsModalRef: BsModalRef, private modalService: BsModalService,
     private formBuilder: FormBuilder,
     public options: ModalOptions) { }
@@ -30,11 +32,20 @@ export class AddEditConsumerGroupComponent implements OnInit {
     this.onClose = new Subject();
     this.modalDataPass = this.options.initialState;
     if (this.modalDataPass && this.modalDataPass != null) {
+      this.selectedIndex = this.modalDataPass.index;
       if(this.isEdit){
-        this.consumerGroup = this.modalDataPass.data;
-       // this.updateEditInformation(this.project);
+        this.consumerGroup = this.modalDataPass.consumerGroup;
+        this.updateInformatioin(this.consumerGroup);
       }
     }
+  }
+
+  updateInformatioin(data: any){
+    this.mainform = new FormGroup({
+      ID: new FormControl(data.ID, Validators.required),
+      groupname: new FormControl(data.groupname, Validators.required),
+      status: new FormControl(data.status, Validators.required)
+      });
   }
 
   get f(): { [key: string]: AbstractControl } {
@@ -47,7 +58,19 @@ export class AddEditConsumerGroupComponent implements OnInit {
     if (this.mainform.invalid) {
       return;
     }
-   
+    if(!this.isEdit){
+      this.onClose.next({
+        data: value
+      });
+      this.bsModalRef.hide();
+    }else{
+      this.onClose.next({
+        data: value,
+        index: this.selectedIndex
+      });
+      this.bsModalRef.hide();
+    }
+
   }
 
   cancel(state: boolean): void {

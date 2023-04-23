@@ -41,7 +41,7 @@
             <th scope="row">{{item.groupname}}</th>
             <td>{{item.status}}</td>
             <td>
-              <button type="button" class="btn btn-primary me-2" (click)="onEditRow(item)"><i class="bi bi-pencil"></i></button>
+              <button type="button" class="btn btn-primary me-2" (click)="onEditRow(item, i)"><i class="bi bi-pencil"></i></button>
               <button type="button" class="btn btn-danger" (click)="onDeleteRow(item, i)"><i class="bi bi-trash3"></i></button>
             </td>
           </tr>

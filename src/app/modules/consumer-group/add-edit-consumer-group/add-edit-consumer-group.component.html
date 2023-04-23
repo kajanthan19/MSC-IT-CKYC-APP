@@ -18,38 +18,39 @@
                     <div class="alert alert-danger" style="padding:5px10px ;" *ngIf="errormessage!=''">
                         {{errormessage}}
                     </div>
-                    <input *ngIf="isEdit" type="hidden" formControlName="id">
+                    <input *ngIf="isEdit" type="hidden" formControlName="ID">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="Name"> Group Name <span class="text-danger">*</span> </label>
-                                <input type="text" class="form-control input-small-4" id="GroupName"
-                                    formControlName="GroupName" placeholder="Enter the Group Name" [ngClass]="{ 'is-invalid': submitted && f['GroupName'].errors }">
-                                  <div *ngIf="submitted && f['GroupName'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['GroupName'].errors['required'] || (f['GroupName'].touched || !f['GroupName'].pristine)">
+                                <input type="text" class="form-control input-small-4" id="groupname"
+                                    formControlName="groupname" placeholder="Enter the Group Name" [ngClass]="{ 'is-invalid': submitted && f['groupname'].errors }">
+                                  <div *ngIf="submitted && f['groupname'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['groupname'].errors['required'] || (f['groupname'].touched || !f['groupname'].pristine)">
                                             Please enter the Group Name</div>
                                   </div>
                             </div>
                         </div>
 
 
-                        <div class="col-md-12">
+                        <!-- <div class="col-md-12">
                             <div class="form-group">
                                 <label for="Description"> Description</label>
                                     <textarea id="w3review" class="form-control input-small-4" name="Description" rows="4" formControlName="Description">
-                                        </textarea>
+                                    </textarea>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="name">Status 
-                                    <!-- <span class="text-danger">*</span>  -->
+                                    <span class="text-danger">*</span> 
                                 </label>
                                 <select class="form-select" aria-label="Default select example"
                                     formControlName="status" [ngClass]="{ 'is-invalid': submitted && f['status'].errors }">
                                     <option [value]="''">Select the Status</option>
                                     <option value="Active">Active</option>
+                                    <option value="InActive">InActive</option>
                                 </select>
                                 <div *ngIf="submitted && f['status'].errors" class="invalid-feedback">
                                     <div *ngIf="f['status'].errors['required'] || (f['status'].touched || !f['status'].pristine)">

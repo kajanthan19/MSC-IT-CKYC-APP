@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { AddEditConsumerGroupComponent } from './add-edit-consumer-group/add-edit-consumer-group.component';
 import { MockDataService } from 'src/app/services/mock-data.service';
 import { ConsumerGroup } from 'src/app/models/ConsumerGroup';
+import { DeleteComponent } from 'src/app/shared/delete/delete.component';
 
 @Component({
   selector: 'kyc-consumer-group',
@@ -36,28 +37,49 @@ onOpenModal(): void {
   };
   let modalConfig = { animated: true, keyboard: true, backdrop: true, ignoreBackdropClick: false };
   this.modalRef = this.modalService.show(AddEditConsumerGroupComponent, Object.assign({}, modalConfig, {class: 'modal-md', initialState}));
-  this.modalRef.content.onClose.subscribe((result: boolean) => {
-    if (result) {
-      // call or bind it
+  this.modalRef.content.onClose.subscribe((result: any) => {
+    if (result && result.data !=null) {
+      let data: ConsumerGroup = {
+                   ID : 40,
+                  groupname: result.data.groupname,
+                  status : result.data.status,     
+      }
+      this.consumerList.push(data)
     }
   });
 }
 
 
-onEditRow(data: any): void {
-  const initialState = {isEdit: true, project: data};
+onEditRow(data: any, index: any): void {
+  const initialState = {isEdit: true, consumerGroup: data ,index: index};
   let modalConfig = { animated: true, keyboard: true, backdrop: true, ignoreBackdropClick: false };
   this.modalRef = this.modalService.show(AddEditConsumerGroupComponent, Object.assign({}, modalConfig, {class: 'modal-md', initialState}));
-  this.modalRef.content.onClose.subscribe((result: boolean) => {
-    if (result) {
-      // call list or bind it
+  this.modalRef.content.onClose.subscribe((result: any) => {
+    if (result && result.data !=null) {
+      this.consumerList[result.index].groupname = result.data.groupname;
+      this.consumerList[result.index].status =  result.data.status;
     }
   });
 }
 
 onDeleteRow(data: any, index: number): void {
-}
+  const initialState = {
+    keyboard: false,
+    backdrop: true,
+    ignoreBackdropClick: true,
+  };
 
-delete(data: any, index: number): void{
-}
+  this.modalRef = this.modalService.show(DeleteComponent, initialState);
+  this.modalRef.content.onClose.subscribe((result: any) => {
+    if (result.Action === 'DELETE') {
+      this.delete(data, index);
+    } else {
+
+    }
+  });
+  }
+
+  delete(data: any, index: number): void {
+    this.consumerList.splice(index, 1)
+  }
 }
