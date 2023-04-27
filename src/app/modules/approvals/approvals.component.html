@@ -1,1 +1,46 @@
-<p>approvals works!</p>
+<div class="row">
+    <div class="col-md-6">
+        <h5>Approval List</h5>
+    </div>
+    <div class="col-md-6">
+        <!-- <button type="button" class="btn btn-primary float-end" (click)="onOpenModal()"><i class="bi bi-plus-circle-fill"></i> Add</button> -->
+    </div>
+</div>
+
+<div class="row mt-2">
+    <table class="table table-bordered">
+      <ngx-loading
+      [show]="loading"
+      [config]="{ backdropBorderRadius: '3px' }"
+    ></ngx-loading>
+        <thead>
+          <tr>
+            <th scope="col">Rec ID</th>
+            <th scope="col">Action</th>
+            <th scope="col">Modified By</th>
+            <th scope="col">Modified Date</th>
+            <th scope="col" style="width: 120px;">View</th>
+            <th scope="col" style="width: 120px;">Approve</th>
+            <th scope="col" style="width: 120px;">Reject</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of approvalList; index as i;">
+            <th scope="row">{{item.ID}}</th>
+            <th >{{item.action}}</th>
+            <td>{{item.modifiedby}}</td>
+            <td>{{item.modifieddate}}</td>
+            <td>
+                <button type="button" class="btn btn-primary me-2" (click)="onEditRow(item)">View</button>
+              </td>
+            <td>
+              <button type="button" class="btn btn-success me-2" (click)="onEditRow(item)">Approve</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger" (click)="onDeleteRow(item, i)">Reject</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+</div>

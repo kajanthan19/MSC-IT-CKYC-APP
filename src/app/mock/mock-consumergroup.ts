@@ -19,6 +19,11 @@ export const CONSUMERDATA: ConsumerGroup[] = [
         ID : 36,
         groupname: 'Texttile',
         status : 'Active'
+      },
+      {
+        ID : 37,
+        groupname: 'Finances',
+        status : 'Active'
       }
   ]
   
