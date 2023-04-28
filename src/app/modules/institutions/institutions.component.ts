@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
+import { MockDataService } from 'src/app/services/mock-data.service';
 import { AddEditInstitutionComponent } from './add-edit-institution/add-edit-institution.component';
 
 @Component({
@@ -11,13 +12,17 @@ import { AddEditInstitutionComponent } from './add-edit-institution/add-edit-ins
 export class InstitutionsComponent implements OnInit {
   public onClose!: Subject<boolean>;
   public modalRef!: BsModalRef;
-  institutionList: any []= [];
+  customerlist: any []= [];
   submitted: boolean = false;
   loading = false;
-  constructor(private modalService: BsModalService) { }
+  constructor(private modalService: BsModalService, private mockdataservice: MockDataService) { }
 
   ngOnInit(): void {
-   
+    this.mockdataservice.getCustomerList().subscribe((res)=>{
+      this.customerlist = res;
+    }, error => {
+      console.log(error);
+    });
   }
 
 
@@ -44,6 +49,10 @@ onEditRow(data: any): void {
       // call list or bind it
     }
   });
+}
+
+onViewData(data: any){
+  
 }
 
 onDeleteRow(data: any, index: number): void {

@@ -11,7 +11,7 @@ export class SidebarComponent  implements OnInit {
     role: 'Admin'
   }
   @Input() statusReceived: boolean = false;
-
+  public basicCollapse = false;
   status: boolean = false;
   ngOnInit(): void {
   }
@@ -22,6 +22,10 @@ export class SidebarComponent  implements OnInit {
     this.status = change.currentValue;
 
 }
+
+  onOpenCollape(){
+    this.basicCollapse = ! this.basicCollapse;
+  }
 
 
 }

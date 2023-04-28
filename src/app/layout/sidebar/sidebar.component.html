@@ -10,6 +10,9 @@
       <a [routerLink] = "'/consumers'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin' || user.role == 'User'">
         <i class="bi bi-clipboard2-data-fill"></i> <span> Consumers</span>
       </a>
+      <a [routerLink] = "'/customers'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
+        <i class="bi bi-nut-fill"></i>  <span> Customers </span>
+      </a>
       <a [routerLink] = "'/consumer-group'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
         <i class="bi bi-collection-fill"></i>  <span> Consumer Group</span></a>
       <a [routerLink] = "'/pricing'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin' || user.role == 'Manager'"> 
@@ -19,11 +22,23 @@
         <i class="bi bi-book-fill"></i>  <span> Products</span></a>
       <a [routerLink] = "'/api-management'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
         <i class="bi bi-file-earmark-fill"></i> <span> API Management</span></a>
-      <a [routerLink] = "'/institutions'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
-        <i class="bi bi-nut-fill"></i>  <span> Institutions</span></a>
+   
 
-      <a [routerLink] = "'/accessmanagement'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
-        <i class="bi bi-universal-access"></i>  <span> Access Management</span> </a>
+      <a href="javascript: void(0)" data-toggle="collapse" aria-expanded="false" (click)="onOpenCollape()" class="list-group-item list-group-item-action bg-light mb-1 collapsed">
+        <i class="bi bi-universal-access"></i>  <span> Access Management</span> 
+      </a>
+      <!-- Submenu content -->
+        <div id='accessmanagement' class="collapse sidebar-submenu" style="margin-left: 25px !important;" [ngClass]="{'show' : basicCollapse == true}">
+          <a [routerLink] = "'/accessmanagement'" class="list-group-item list-group-item-action bg-submenu text-white">
+              <span class="menu-collapsed">Users</span>
+          </a>
+          <a [routerLink] = "'/accessmanagement/roles'" class="list-group-item list-group-item-action bg-submenu text-white">
+              <span class="menu-collapsed">Roles</span>
+          </a>
+          <a [routerLink] = "'/accessmanagement/access'" class="list-group-item list-group-item-action bg-submenu text-white">
+              <span class="menu-collapsed">Role Access</span>
+          </a>
+      </div>
 
       <a [routerLink] = "'/approvals'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
         <i class="bi bi-badge-vo-fill"></i>  <span> Approvals</span></a>

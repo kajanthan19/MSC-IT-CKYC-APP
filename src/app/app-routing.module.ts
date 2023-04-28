@@ -59,7 +59,7 @@ const routes: Routes = [
     // canActivate: [AuthGuard] 
   },
   {
-    path: 'institutions',
+    path: 'customers',
     loadChildren: () => import('./modules/institutions/institutions.module').then(m => m.InstitutionsModule),
     // canActivate: [AuthGuard] 
   },

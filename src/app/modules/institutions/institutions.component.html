@@ -15,19 +15,28 @@
         <thead>
           <tr>
             
-            <th scope="col">Institution Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Status</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">NIC/Passport</th>
+            <th scope="col">Occupation</th>
+            <th scope="col">Contact No</th>
+            <th scope="col">Type</th>
+            <th scope="col">DOB</th>
+            <th scope="col">District</th>
             <th scope="col" style="width: 120px;">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of institutionList; index as i;">
-            <th scope="row">{{item.name}}</th>
-            <td>{{item.description}}</td>
+          <tr *ngFor="let item of customerlist; index as i;">
+            <th scope="row">{{item.fullname}}</th>
+            <td>{{item.identityNo}}</td>
+            <td>{{item.occupation}}</td>
+            <td>{{item.contactno}}</td>
+            <td>{{item.customertype}}</td>
+            <td>{{item.dob}}</td>
+            <td>{{item.district}}</td>
             <td>
+              <button type="button" class="btn btn-primary me-2" (click)="onViewData(item)"><i class="bi bi-eye"></i></button>
               <button type="button" class="btn btn-primary me-2" (click)="onEditRow(item)"><i class="bi bi-pencil"></i></button>
-              <button type="button" class="btn btn-danger" (click)="onDeleteRow(item, i)"><i class="bi bi-trash3"></i></button>
             </td>
           </tr>
 

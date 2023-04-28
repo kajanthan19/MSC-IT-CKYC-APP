@@ -1,0 +1,50 @@
+import { CustomerData } from "../models/customer";
+
+export const CUSTOMERDATALIST: CustomerData[] = [
+    {
+      ID : 1,
+      fullname: 'Consumer Addition',
+      customertype: 'Consumer Addition',
+      identityNo: 'Consumer Addition',
+      occupation: 'Consumer Addition',
+      contactno: 'Consumer Addition',
+      dob: 'Consumer Addition',
+      district: 'Consumer Addition',
+      addressList: [],
+      contactList: [],
+      status : 'Pending',
+      modifiedby: 'User 1',
+      modifieddate: '22-04-2023',
+    },
+    {
+        ID : 2,
+        fullname: 'Consumer Modification',
+        customertype: 'Consumer Modification',
+        identityNo: 'Consumer Modification',
+        occupation: 'Consumer Modification',
+        contactno: 'Consumer Modification',
+        dob: 'Consumer Modification',
+        district: 'Consumer Modification',
+        addressList: [],
+        contactList: [],
+        status : 'Pending',
+        modifiedby: 'User 2',
+        modifieddate: '21-04-2023',
+      },
+      {
+        ID : 3,
+        fullname: 'Fee Template Change',
+        customertype: 'Fee Template Change',
+        identityNo: 'Fee Template Change',
+        occupation: 'Fee Template Change',
+        contactno: 'Fee Template Change',
+        dob: 'Fee Template Change',
+        district: 'Fee Template Change',
+        addressList: [],
+        contactList:[],
+        status : 'Pending',
+        modifiedby: 'User 3',
+        modifieddate: '22-04-2023',
+      }
+  ]
+  

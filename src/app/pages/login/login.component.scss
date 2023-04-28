@@ -18,7 +18,7 @@ body {
 @media only screen and (min-width: 500px) and (max-width: 1199px) {
     .manual-set {
         position: absolute;
-        top: 20%;
+        top: 14%;
         left: 7%;
       }
  }
@@ -27,7 +27,17 @@ body {
 @media only screen and (min-width: 1200px) { 
     .manual-set {
         position: absolute;
-        top: 20%;
+        top: 14%;
         left: 14%;
       }
+}
+
+form {
+  padding: 0px 30px 50px !important;
+}
+.bg-kyc {
+  background: #344955 !important;
+}
+.error-kyc {
+  color: #f8a0a9 !important;
 }
