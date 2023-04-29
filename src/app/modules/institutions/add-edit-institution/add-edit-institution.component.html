@@ -6,7 +6,7 @@
       ></ngx-loading>
         <div class="modal-header">
             <h4 class="modal-title pull-left"><span *ngIf="isEdit;else add">Update</span>
-                <ng-template #add>New </ng-template> Institution
+                <ng-template #add>New </ng-template> Customer
             </h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="cancel(false)">
                 <span aria-hidden="true">&times;</span>
@@ -20,43 +20,124 @@
                     </div>
                     <input *ngIf="isEdit" type="hidden" formControlName="id">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-8">
                             <div class="form-group">
-                                <label for="Name"> Institution Name <span class="text-danger">*</span> </label>
-                                <input type="text" class="form-control input-small-4" id="GroupName"
-                                    formControlName="GroupName" placeholder="Enter the Institution Name" [ngClass]="{ 'is-invalid': submitted && f['GroupName'].errors }">
-                                  <div *ngIf="submitted && f['GroupName'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['GroupName'].errors['required'] || (f['GroupName'].touched || !f['GroupName'].pristine)">
-                                            Please enter the Institution Name</div>
+                                <label for="Name"> NIC/Passprt No <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control input-small-4" id="identityNo"
+                                    formControlName="identityNo" placeholder="Enter the NIC/Passprt No" [ngClass]="{ 'is-invalid': submitted && f['identityNo'].errors }">
+                                  <div *ngIf="submitted && f['identityNo'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['identityNo'].errors['required'] || (f['identityNo'].touched || !f['identityNo'].pristine)">
+                                            Please enter theNIC/Passprt No </div>
                                   </div>
                             </div>
                         </div>
-
-
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="Description"> Description</label>
-                                    <textarea id="w3review" class="form-control input-small-4" name="Description" rows="4" formControlName="Description">
-                                        </textarea>
+                                <label for="Name"> First Name <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control input-small-4" id="firstname"
+                                    formControlName="firstname" placeholder="Enter the First Name" [ngClass]="{ 'is-invalid': submitted && f['firstname'].errors }">
+                                  <div *ngIf="submitted && f['firstname'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['firstname'].errors['required'] || (f['firstname'].touched || !f['firstname'].pristine)">
+                                            Please enter the First Name</div>
+                                  </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Name"> Last Name <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control input-small-4" id="lastname"
+                                    formControlName="lastname" placeholder="Enter the Last Name" [ngClass]="{ 'is-invalid': submitted && f['lastname'].errors }">
+                                  <div *ngIf="submitted && f['lastname'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['lastname'].errors['required'] || (f['lastname'].touched || !f['lastname'].pristine)">
+                                            Please enter the Last Name</div>
+                                  </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Name"> Date Of Birth </label>
+                                <input type="text" class="form-control input-small-4" id="dob"
+                                    formControlName="dob" placeholder="DD/MM/YYYY" [ngClass]="{ 'is-invalid': submitted && f['dob'].errors }">
+                                  <div *ngIf="submitted && f['dob'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['dob'].errors['required'] || (f['dob'].touched || !f['dob'].pristine)">
+                                            Please enter the DOB</div>
+                                  </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Name"> Occupation  </label>
+                                <input type="text" class="form-control input-small-4" id="occupation"
+                                    formControlName="occupation" placeholder="Enter Occupation" [ngClass]="{ 'is-invalid': submitted && f['occupation'].errors }">
+                                  <div *ngIf="submitted && f['occupation'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['occupation'].errors['required'] || (f['occupation'].touched || !f['occupation'].pristine)">
+                                            Please enter the Occupation</div>
+                                  </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Living Status 
+                                </label>
+                                <select class="form-select" aria-label="Default select example"
+                                    formControlName="livingStatus" [ngClass]="{ 'is-invalid': submitted && f['livingStatus'].errors }">
+                                    <option [value]="''">Select the Status</option>
+                                    <option value="Sri lankan Citizen">Sri lankan Citizen</option>
+                                    <option value="Permenant Resident">Permenant Resident</option>
+                                    <option value="Business Visa">Business Visa</option>
+                                </select>
+                                <div *ngIf="submitted && f['livingStatus'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['livingStatus'].errors['required'] || (f['livingStatus'].touched || !f['livingStatus'].pristine)">
+                                        Please select the `livingStatus</div>
+                              </div>
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="name">Status 
-                                    <!-- <span class="text-danger">*</span>  -->
+                                <label for="Description"> Address</label>
+                                    <textarea id="w3review" class="form-control input-small-4" name="address" rows="4" formControlName="address"  [ngClass]="{ 'is-invalid': submitted && f['address'].errors }">
+                                        </textarea>
+                                        <div *ngIf="submitted && f['address'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['address'].errors['required'] || (f['address'].touched || !f['address'].pristine)">
+                                                Please select the `Address
+                                            </div>
+                                        </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Name"> Contact No <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control input-small-4" id="contactno"
+                                    formControlName="contactno" placeholder="Enter the Contact No" [ngClass]="{ 'is-invalid': submitted && f['contactno'].errors }">
+                                  <div *ngIf="submitted && f['contactno'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['contactno'].errors['required'] || (f['contactno'].touched || !f['contactno'].pristine)">
+                                            Please enter the Contact No</div>
+                                  </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Name"> Home Contact No  </label>
+                                <input type="text" class="form-control input-small-4" id="homecontact"
+                                    formControlName="homecontact" placeholder="Enter the Institution Name" [ngClass]="{ 'is-invalid': submitted && f['homecontact'].errors }">
+                                  <div *ngIf="submitted && f['homecontact'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['homecontact'].errors['required'] || (f['homecontact'].touched || !f['homecontact'].pristine)">
+                                            Please enter the  Home Contact No</div>
+                                  </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="name">Marial Status 
                                 </label>
                                 <select class="form-select" aria-label="Default select example"
-                                    formControlName="status" [ngClass]="{ 'is-invalid': submitted && f['status'].errors }">
+                                    formControlName="marriageStatus" [ngClass]="{ 'is-invalid': submitted && f['marriageStatus'].errors }">
                                     <option [value]="''">Select the Status</option>
-                                    <option value="Active">Active</option>
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
                                 </select>
-                                <div *ngIf="submitted && f['status'].errors" class="invalid-feedback">
-                                    <div *ngIf="f['status'].errors['required'] || (f['status'].touched || !f['status'].pristine)">
+                                <div *ngIf="submitted && f['marriageStatus'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['marriageStatus'].errors['required'] || (f['marriageStatus'].touched || !f['marriageStatus'].pristine)">
                                         Please select the `status</div>
                               </div>
                             </div>
                         </div>
+
 
                         
 

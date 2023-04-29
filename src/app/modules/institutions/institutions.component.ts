@@ -31,7 +31,7 @@ onOpenModal(): void {
     isEdit: false
   };
   let modalConfig = { animated: true, keyboard: true, backdrop: true, ignoreBackdropClick: false };
-  this.modalRef = this.modalService.show(AddEditInstitutionComponent, Object.assign({}, modalConfig, {class: 'modal-md', initialState}));
+  this.modalRef = this.modalService.show(AddEditInstitutionComponent, Object.assign({}, modalConfig, {class: 'modal-lg', initialState}));
   this.modalRef.content.onClose.subscribe((result: boolean) => {
     if (result) {
       // call or bind it
@@ -43,7 +43,7 @@ onOpenModal(): void {
 onEditRow(data: any): void {
   const initialState = {isEdit: true, project: data};
   let modalConfig = { animated: true, keyboard: true, backdrop: true, ignoreBackdropClick: false };
-  this.modalRef = this.modalService.show(AddEditInstitutionComponent, Object.assign({}, modalConfig, {class: 'modal-md', initialState}));
+  this.modalRef = this.modalService.show(AddEditInstitutionComponent, Object.assign({}, modalConfig, {class: 'modal-lg', initialState}));
   this.modalRef.content.onClose.subscribe((result: boolean) => {
     if (result) {
       // call list or bind it

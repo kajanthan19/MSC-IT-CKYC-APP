@@ -3,7 +3,8 @@ import { CustomerData } from "../models/customer";
 export const CUSTOMERDATALIST: CustomerData[] = [
     {
       ID : 1,
-      fullname: 'Consumer Addition',
+      firstname: 'Consumer Addition',
+      lastname: 'Consumer Addition',
       customertype: 'Consumer Addition',
       identityNo: 'Consumer Addition',
       occupation: 'Consumer Addition',
@@ -18,7 +19,8 @@ export const CUSTOMERDATALIST: CustomerData[] = [
     },
     {
         ID : 2,
-        fullname: 'Consumer Modification',
+        firstname: 'Consumer Addition',
+        lastname: 'Consumer Addition',
         customertype: 'Consumer Modification',
         identityNo: 'Consumer Modification',
         occupation: 'Consumer Modification',
@@ -33,7 +35,8 @@ export const CUSTOMERDATALIST: CustomerData[] = [
       },
       {
         ID : 3,
-        fullname: 'Fee Template Change',
+        firstname: 'Consumer Addition',
+        lastname: 'Consumer Addition',
         customertype: 'Fee Template Change',
         identityNo: 'Fee Template Change',
         occupation: 'Fee Template Change',

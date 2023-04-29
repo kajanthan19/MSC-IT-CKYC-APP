@@ -17,9 +17,18 @@ export class AddEditInstitutionComponent implements OnInit {
   modalDataPass: any;
   institution: any;
   mainform: FormGroup = new FormGroup({
-    GroupName: new FormControl('', Validators.required),
-    description: new FormControl(''),
-    status: new FormControl('')
+    firstname: new FormControl('', Validators.required),
+    lastname: new FormControl('', Validators.required),
+    identityNo: new FormControl('', Validators.required),
+    address: new FormControl('', Validators.required),
+    district: new FormControl('', Validators.required),
+    dob: new FormControl(''),
+    contactno:new FormControl('', Validators.required),
+    homecontact: new FormControl(''),
+    livingStatus: new FormControl(''),
+    marriageStatus: new FormControl(''),
+    status: new FormControl(''),
+    occupation: new FormControl('')
   });
   constructor(private bsModalRef: BsModalRef, private modalService: BsModalService,
     private formBuilder: FormBuilder,

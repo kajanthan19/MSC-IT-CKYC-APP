@@ -24,18 +24,18 @@
         <i class="bi bi-file-earmark-fill"></i> <span> API Management</span></a>
    
 
-      <a href="javascript: void(0)" data-toggle="collapse" aria-expanded="false" (click)="onOpenCollape()" class="list-group-item list-group-item-action bg-light mb-1 collapsed" [ngClass]="(mainTitle === 'AccessManagement') ? 'active': ''">
+      <a href="javascript: void(0)" data-toggle="collapse" aria-expanded="false" (click)="onOpenCollape()" class="list-group-item list-group-item-action bg-light mb-1 collapsed" [ngClass]="(mainTitle === 'Users' || mainTitle === 'Roles' ) ? 'active': ''">
         <i class="bi bi-universal-access"></i>  <span> Access Management</span> 
       </a>
       <!-- Submenu content -->
         <div id='accessmanagement' class="collapse sidebar-submenu" style="margin-left: 25px !important;" [ngClass]="{'show' : basicCollapse == true}">
-          <a [routerLink] = "'/accessmanagement'" class="list-group-item list-group-item-action bg-submenu text-white" [ngClass]="(mainTitle === 'AccessManagement') ? 'active': ''">
+          <a [routerLink] = "'/accessmanagement'" class="list-group-item list-group-item-action bg-submenu text-white" [ngClass]="(mainTitle === 'Users') ? 'active': ''">
               <span class="menu-collapsed">Users</span>
           </a>
-          <a [routerLink] = "'/accessmanagement/roles'" class="list-group-item list-group-item-action bg-submenu text-white">
+          <a [routerLink] = "'/accessmanagement/roles'" class="list-group-item list-group-item-action bg-submenu text-white" [ngClass]="(mainTitle === 'Roles') ? 'active': ''">
               <span class="menu-collapsed">Roles</span>
           </a>
-          <a [routerLink] = "'/accessmanagement/access'" class="list-group-item list-group-item-action bg-submenu text-white">
+          <a [routerLink] = "'/accessmanagement/access'" class="list-group-item list-group-item-action bg-submenu text-white" [ngClass]="(mainTitle === 'RoleAccess') ? 'active': ''">
               <span class="menu-collapsed">Role Access</span>
           </a>
       </div>

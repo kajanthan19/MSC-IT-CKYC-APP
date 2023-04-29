@@ -1,6 +1,7 @@
 export interface CustomerData {
     ID :number;
-    fullname: string;
+    firstname: string;
+    lastname: string;
     customertype: string;
     identityNo: string;
     occupation: string;

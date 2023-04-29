@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, SimpleChange } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Event as NavigationEvent } from "@angular/router";
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'kyc-sidebar',
@@ -22,10 +23,11 @@ export class SidebarComponent  implements OnInit {
         if ( event instanceof NavigationEnd ) {
            let dataVal = this.route?.snapshot?.firstChild?.data?.title;
            this.mainTitle = dataVal;
-           console.log(dataVal)
+           // console.log(dataVal)
            if(this.mainTitle == 'AccessManagement'){
             this.basicCollapse = true;
            }
+           this.isMainClassActive()
         }
 
       }
@@ -39,6 +41,26 @@ export class SidebarComponent  implements OnInit {
     let change: SimpleChange  = changes['statusReceived']; 
     this.status = change.currentValue;
 
+}
+
+isMainClassActive(): void {
+  this.router.events.pipe(
+    filter(event => event instanceof NavigationEnd),
+  ).subscribe(() => {
+    const rt = this.getChild(this.route);
+    rt.data.subscribe((data: any) => {
+      this.mainTitle = data?.title;
+      console.log(this.mainTitle)
+    });
+  });
+}
+
+getChild(activatedRoute: ActivatedRoute): any {
+  if (activatedRoute.firstChild) {
+    return this.getChild(activatedRoute.firstChild);
+  } else {
+    return activatedRoute;
+  }
 }
 
   onOpenCollape(){
