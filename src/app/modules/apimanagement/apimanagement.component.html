@@ -7,9 +7,7 @@
                     <select class="form-select" aria-label="Default select example"
                     formControlName="apiname" [ngClass]="{ 'is-invalid': submitted && f['apiname'].errors }">
                     <option [value]="''">Select the API Template</option>
-                    <option value="Active">Active</option>
-                    <option value="InActive">InActive</option>
-                    <option value="Cancel">Cancel</option>
+                    <option value="ConsumerUpload">Custome Upload</option>
               </select>
                 <div *ngIf="submitted && f['apiname'].errors" class="invalid-feedback">
                     <div *ngIf="f['apiname'].errors['required'] || (f['apiname'].touched || !f['apiname'].pristine)">
