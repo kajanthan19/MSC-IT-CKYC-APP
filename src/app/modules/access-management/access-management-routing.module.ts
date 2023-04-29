@@ -10,9 +10,15 @@ const routes: Routes = [
     path: '', 
     component: AccessManagementComponent,
     children: [
-      { path: '', component: UserComponent },
-      { path: 'roles', component: RoleComponent },
-      { path: 'access', component: RoleaccessComponent }
+      { path: '', component: UserComponent , data : {
+        title: 'Users'
+      }, },
+      { path: 'roles', component: RoleComponent,  data : {
+        title: 'Roles'
+      }, },
+      { path: 'access', component: RoleaccessComponent,   data : {
+        title: 'RoleAccess'
+      }, }
     ],
   },
 ];

@@ -1,4 +1,6 @@
 import { Component, Input, OnInit, SimpleChange } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Event as NavigationEvent } from "@angular/router";
 
 @Component({
   selector: 'kyc-sidebar',
@@ -13,6 +15,22 @@ export class SidebarComponent  implements OnInit {
   @Input() statusReceived: boolean = false;
   public basicCollapse = false;
   status: boolean = false;
+  mainTitle!: string;
+  constructor(private router: Router,  private route: ActivatedRoute){
+    this.router.events.subscribe(
+      ( event: NavigationEvent ) : void => {
+        if ( event instanceof NavigationEnd ) {
+           let dataVal = this.route?.snapshot?.firstChild?.data?.title;
+           this.mainTitle = dataVal;
+           console.log(dataVal)
+           if(this.mainTitle == 'AccessManagement'){
+            this.basicCollapse = true;
+           }
+        }
+
+      }
+    );
+  }
   ngOnInit(): void {
   }
 
@@ -25,6 +43,10 @@ export class SidebarComponent  implements OnInit {
 
   onOpenCollape(){
     this.basicCollapse = ! this.basicCollapse;
+  }
+
+  onCloseCollape(){
+    this.basicCollapse = false;
   }
 
 

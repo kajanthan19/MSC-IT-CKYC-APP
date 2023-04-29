@@ -7,29 +7,29 @@
       <img class="rounded mx-auto d-block" src="../../../assets/small-logo.png" alt="" width="100%" height=40px>
     </div>
     <div class="list-group list-group-flush mt-4" [ngClass]="{'min-listitem': status}">
-      <a [routerLink] = "'/consumers'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin' || user.role == 'User'">
+      <a [routerLink] = "'/consumers'" (click)="onCloseCollape()" class="list-group-item list-group-item-action bg-light mb-1" [ngClass]="(mainTitle === 'Consumers') ? 'active': ''" *ngIf="user.role == 'Admin' || user.role == 'User'">
         <i class="bi bi-clipboard2-data-fill"></i> <span> Consumers</span>
       </a>
-      <a [routerLink] = "'/customers'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
+      <a [routerLink] = "'/customers'" (click)="onCloseCollape()" class="list-group-item list-group-item-action bg-light mb-1" [ngClass]="(mainTitle === 'Customers') ? 'active': ''" *ngIf="user.role == 'Admin'">
         <i class="bi bi-nut-fill"></i>  <span> Customers </span>
       </a>
-      <a [routerLink] = "'/consumer-group'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
+      <a [routerLink] = "'/consumer-group'" (click)="onCloseCollape()" class="list-group-item list-group-item-action bg-light mb-1" [ngClass]="(mainTitle === 'ConsumerGroup') ? 'active': ''" *ngIf="user.role == 'Admin'">
         <i class="bi bi-collection-fill"></i>  <span> Consumer Group</span></a>
-      <a [routerLink] = "'/pricing'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin' || user.role == 'Manager'"> 
+      <a [routerLink] = "'/pricing'" (click)="onCloseCollape()" class="list-group-item list-group-item-action bg-light mb-1" [ngClass]="(mainTitle === 'Pricing') ? 'active': ''" *ngIf="user.role == 'Admin' || user.role == 'Manager'"> 
         <i class="bi bi-tags-fill"></i>  <span> Prcing</span></a>
 
-      <a [routerLink] = "'/products'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
+      <a [routerLink] = "'/products'" (click)="onCloseCollape()" class="list-group-item list-group-item-action bg-light mb-1" [ngClass]="(mainTitle === 'Products') ? 'active': ''" *ngIf="user.role == 'Admin'">
         <i class="bi bi-book-fill"></i>  <span> Products</span></a>
-      <a [routerLink] = "'/api-management'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
+      <a [routerLink] = "'/api-management'" (click)="onCloseCollape()" class="list-group-item list-group-item-action bg-light mb-1" [ngClass]="(mainTitle === 'APIManagement') ? 'active': ''" *ngIf="user.role == 'Admin'">
         <i class="bi bi-file-earmark-fill"></i> <span> API Management</span></a>
    
 
-      <a href="javascript: void(0)" data-toggle="collapse" aria-expanded="false" (click)="onOpenCollape()" class="list-group-item list-group-item-action bg-light mb-1 collapsed">
+      <a href="javascript: void(0)" data-toggle="collapse" aria-expanded="false" (click)="onOpenCollape()" class="list-group-item list-group-item-action bg-light mb-1 collapsed" [ngClass]="(mainTitle === 'AccessManagement') ? 'active': ''">
         <i class="bi bi-universal-access"></i>  <span> Access Management</span> 
       </a>
       <!-- Submenu content -->
         <div id='accessmanagement' class="collapse sidebar-submenu" style="margin-left: 25px !important;" [ngClass]="{'show' : basicCollapse == true}">
-          <a [routerLink] = "'/accessmanagement'" class="list-group-item list-group-item-action bg-submenu text-white">
+          <a [routerLink] = "'/accessmanagement'" class="list-group-item list-group-item-action bg-submenu text-white" [ngClass]="(mainTitle === 'AccessManagement') ? 'active': ''">
               <span class="menu-collapsed">Users</span>
           </a>
           <a [routerLink] = "'/accessmanagement/roles'" class="list-group-item list-group-item-action bg-submenu text-white">
@@ -40,7 +40,7 @@
           </a>
       </div>
 
-      <a [routerLink] = "'/approvals'" class="list-group-item list-group-item-action bg-light mb-1" *ngIf="user.role == 'Admin'">
+      <a [routerLink] = "'/approvals'" (click)="onCloseCollape()" class="list-group-item list-group-item-action bg-light mb-1" [ngClass]="(mainTitle === 'Approvals') ? 'active': ''" *ngIf="user.role == 'Admin'">
         <i class="bi bi-badge-vo-fill"></i>  <span> Approvals</span></a>
     </div>
   </div>
