@@ -27,7 +27,9 @@ export class LoginComponent implements OnInit {
     }
 
   ngOnInit(): void {
-  
+    if(this.authservice.isAuthenticated()){
+      this.router.navigate(['/home']);
+    }
   }
 
   checkPasswords: ValidatorFn = (group: AbstractControl):  ValidationErrors | null => { 

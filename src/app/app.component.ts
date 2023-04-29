@@ -19,7 +19,6 @@ export class AppComponent {
 
   receivedMessageHandler(p: boolean) {
     this.status = p;
-  
   }
 
   

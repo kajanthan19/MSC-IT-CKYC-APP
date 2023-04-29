@@ -57,6 +57,14 @@ export class AuthService {
     //     }));
   }
 
+  public isAuthenticated(): boolean {
+    const token = localStorage.getItem('user_data');
+    if (token != null) {
+      return true;
+    }
+    return false;
+  }
+
   newpassword(email: any, password: any, newPassword: any) {
     return this.http.post<any>(`${environment.apiUrl}/tokens/new-password`, { email, password, newPassword }, { 'headers': this.headers } )
         .pipe(map(res => {
