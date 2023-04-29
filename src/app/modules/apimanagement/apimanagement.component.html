@@ -1,51 +1,71 @@
 <div class="row">
-    <div class="row">
-      <div class="col-9">
-        <p>API Description goes here</p>
-      </div>
-      <div class="col-3">
-        <div class="row">
-          <div class="col-12"><label for="dropdown-description">API</label>
-            <select class="form-select mb-3">
-              <option>Dropdown option 1</option>
-              <option>Dropdown option 2</option>
-            </select>
-          </div>
-          <div class="col-12">
-            <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="radio-buttons" id="radio1" value="option1" checked>
-              <label class="form-check-label" for="radio1">
-                External Access
-              </label>
+  <form [formGroup]="mainform" autocomplete="off" (ngSubmit)="onSubmit(mainform.value)">
+      <div class="row">
+          <div class="col-md-6">
+              <div class="form-group mt-2">
+                <label for="Name"> API Template <span class="text-danger">*</span> </label>
+                    <select class="form-select" aria-label="Default select example"
+                    formControlName="apiname" [ngClass]="{ 'is-invalid': submitted && f['apiname'].errors }">
+                    <option [value]="''">Select the API Template</option>
+                    <option value="Active">Active</option>
+                    <option value="InActive">InActive</option>
+                    <option value="Cancel">Cancel</option>
+              </select>
+                <div *ngIf="submitted && f['apiname'].errors" class="invalid-feedback">
+                    <div *ngIf="f['apiname'].errors['required'] || (f['apiname'].touched || !f['apiname'].pristine)">
+                        Please select the Template
+                    </div>
+                </div>
             </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="radio-buttons" id="radio2" value="option2">
-              <label class="form-check-label" for="radio2">
-                Active
+
+            <div class="form-check mt-5">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">External Access</label>
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="name">Status 
+                  <span class="text-danger">*</span> 
               </label>
+              <select class="form-select" aria-label="Default select example"
+                  formControlName="status" [ngClass]="{ 'is-invalid': submitted && f['status'].errors }">
+                  <option [value]="''">Select the Status</option>
+                  <option value="Active">Active</option>
+                  <option value="InActive">InActive</option>
+              </select>
+              <div *ngIf="submitted && f['status'].errors" class="invalid-feedback">
+                  <div *ngIf="f['status'].errors['required'] || (f['status'].touched || !f['status'].pristine)">
+                      Please select the `status</div>
             </div>
           </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mt-2">
+              <label for="Name"> Description <span class="text-danger">*</span> </label>
+              <textarea id="w3review" class="form-control input-small-4" name="Description" rows="4" formControlName="description" [ngClass]="{ 'is-invalid': submitted && f['description'].errors }">
+              </textarea>
+                <div *ngIf="submitted && f['description'].errors" class="invalid-feedback">
+                      <div *ngIf="f['description'].errors['required'] || (f['description'].touched || !f['description'].pristine)">
+                          Please enter the Description
+                      </div>
+                </div>
+          </div>
+          </div>
+
+          <div class="modal-footer mt-4">
+            <button type="button" (click)="onReset()" class="btn btn-warning float-right">
+            Reset
+          </button>
+            <button type="submit" class="btn  btn-primary pr-4 pl-4" *ngIf="!isEdit"
+                >Submit</button>
+            <button type="submit" class="btn  btn-primary pr-4 pl-4" *ngIf="isEdit"
+                [disabled]="!mainform.valid">Update</button>
         </div>
       </div>
-      
-      <div class="row" style="margin-top: 10px;">
-        <div class="col-12 text-right">
-          <button class="btn btn-primary">Submit</button>
-          <button class="btn btn-secondary" style="margin-left: 10px;">Cancel</button>
-        </div>
-      </div>
-      
-      <div class="row" style="margin-top: 10px;">
-        <div class="col-12 text-right">
-          <button class="btn btn-secondary">EDIT</button>
-          <button class="btn btn-success" style="margin-left: 10px;">Approve</button>
-          <button class="btn btn-primary" style="margin-left: 10px;">Save</button>
-        </div>
-      </div>
-    </div>
+    </form>
 </div>
 
-<div class="row mt-2">
+<div class="row mt-5">
     <table class="table table-bordered">
       <ngx-loading
       [show]="loading"
@@ -54,9 +74,10 @@
         <thead>
           <tr>
             
-            <th scope="col">Service ID</th>
-            <th scope="col">Service Name</th>
-            <th scope="col"> Encryption type</th>
+            <th scope="col">API Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">External Access</th>
+            <th scope="col">Status</th>
             <th scope="col" style="width: 120px;">Action</th>
           </tr>
         </thead>

@@ -16,6 +16,8 @@ import { User } from '../models/user';
 import { USERDATA } from '../mock/mock-user';
 import { RoleAccess } from '../models/role-access';
 import { ROLEACCESSDATA } from '../mock/mock-role-access';
+import { PricingModal } from '../models/Pricing';
+import { PRICINGMODALLIST } from '../mock/mock-pricing';
 
 @Injectable({
   providedIn: 'root'
@@ -56,6 +58,10 @@ export class MockDataService {
 
   getRoleAccessPages(): Observable<RoleAccess[]> {
     return of(ROLEACCESSDATA);
+  }
+
+  getAllPricingInfo(): Observable<PricingModal[]> {
+    return of(PRICINGMODALLIST);
   }
 
 }
